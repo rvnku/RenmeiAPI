@@ -17,3 +17,4 @@ class Env(ABC):
     port = int(os.getenv('PORT', 8000))
     ssl_sertfile = os.getenv('SSL_SERTFILE')
     ssl_keyfile = os.getenv('SSL_KEYFILE')
+    redirect_uri = os.getenv('REDIRECT_URI', f'http{'s' if ssl_keyfile and ssl_sertfile else ''}://{host}:{port}/auth/callback')
